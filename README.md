@@ -16,6 +16,7 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
 
 ## Technology Stack
 
+- **Frontend**: React 19.2, React Router 7.9, Axios, Vite
 - **Backend**: Django 4.2.7, Django REST Framework 3.14.0
 - **Database**: PostgreSQL
 - **Authentication**: JWT (Simple JWT)
@@ -50,6 +51,7 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
    ```
 
 4. **Access the application**
+   - Frontend: http://localhost:5173
    - API: http://localhost:8000/api/
    - Swagger Documentation: http://localhost:8000/swagger/
    - Admin Panel: http://localhost:8000/admin/
@@ -94,6 +96,13 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
 7. **Run development server**
    ```bash
    python manage.py runserver
+   ```
+
+8. **Run frontend (in a separate terminal)**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
    ```
 
 ## API Endpoints
