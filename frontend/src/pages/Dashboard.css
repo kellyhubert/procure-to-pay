@@ -71,17 +71,26 @@
 
 .welcome-section {
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
 }
 
 .welcome-section h2 {
   color: #333;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .role-description {
   color: #666;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
 }
 
 .action-buttons {
