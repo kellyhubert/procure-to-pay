@@ -90,26 +90,85 @@
   border: 1px solid #fcc;
 }
 
-.demo-accounts {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #eee;
+.divider {
+  margin: 2rem 0 1.5rem;
   text-align: center;
+  position: relative;
 }
 
-.demo-accounts h3 {
-  color: #667eea;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ddd, transparent);
 }
 
-.demo-accounts p {
-  color: #666;
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-}
-
-.demo-accounts small {
+.divider span {
+  position: relative;
+  background: white;
+  padding: 0 1rem;
   color: #999;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.demo-accounts {
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7ff;
+}
+
+.demo-info {
+  text-align: left;
+}
+
+.demo-title {
+  color: #667eea;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.demo-credential {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.demo-credential .label {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.demo-credential code {
+  background: white;
+  color: #667eea;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.demo-hint {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: white;
+  border-left: 3px solid #667eea;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.demo-hint strong {
+  color: #667eea;
 }
