@@ -65,10 +65,26 @@ const Login = () => {
           </button>
         </form>
 
+        <div className="divider">
+          <span>Demo Account</span>
+        </div>
+
         <div className="demo-accounts">
-          <h3>Demo Accounts</h3>
-          <p><strong>Admin:</strong> admin / admin123</p>
-          <p><small>After login, you can create users with different roles</small></p>
+          <div className="demo-info">
+            <p className="demo-title">🔑 Quick Access</p>
+            <div className="demo-credential">
+              <span className="label">Username:</span>
+              <code>admin</code>
+            </div>
+            <div className="demo-credential">
+              <span className="label">Password:</span>
+              <code>admin123</code>
+            </div>
+            <p className="demo-hint">
+              💡 <strong>Tip:</strong> Use Django Admin Panel to create users with different roles:
+              <br/>Staff, Approver L1, Approver L2, or Finance
+            </p>
+          </div>
         </div>
       </div>
     </div>
