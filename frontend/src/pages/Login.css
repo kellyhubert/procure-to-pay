@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
 }
 
 .login-box {
@@ -13,6 +14,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
+  margin: auto;
 }
 
 .login-box h1 {
@@ -90,85 +92,45 @@
   border: 1px solid #fcc;
 }
 
-.divider {
-  margin: 2rem 0 1.5rem;
-  text-align: center;
-  position: relative;
-}
-
-.divider::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #ddd, transparent);
-}
-
-.divider span {
-  position: relative;
-  background: white;
-  padding: 0 1rem;
-  color: #999;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
 .demo-accounts {
-  background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #e5e7ff;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  text-align: center;
 }
 
-.demo-info {
-  text-align: left;
-}
-
-.demo-title {
+.demo-accounts h3 {
   color: #667eea;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.demo-credential {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.demo-credential .label {
+.demo-accounts p {
   color: #666;
+  margin: 0.25rem 0;
   font-size: 0.9rem;
-  font-weight: 500;
-  min-width: 80px;
 }
 
-.demo-credential code {
-  background: white;
-  color: #667eea;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  border: 1px solid #ddd;
-  font-weight: 600;
+.demo-accounts small {
+  color: #999;
+  font-size: 0.8rem;
 }
 
-.demo-hint {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  background: white;
-  border-left: 3px solid #667eea;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  color: #555;
-  line-height: 1.5;
-}
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1rem;
+  }
 
-.demo-hint strong {
-  color: #667eea;
+  .login-box {
+    padding: 1.5rem;
+    max-height: 95vh;
+  }
+
+  .login-box h1 {
+    font-size: 1.3rem;
+  }
+
+  .login-box h2 {
+    font-size: 1.5rem;
+  }
 }
