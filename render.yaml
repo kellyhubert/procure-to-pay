@@ -1,11 +1,11 @@
-services:
-  # PostgreSQL Database
-  - type: postgres
-    name: procure-to-pay-db
-    plan: free
-    region: oregon
+databases:
+  - name: procure-to-pay-db
     databaseName: procure_to_pay
     user: procure_user
+    plan: free
+    region: oregon
+
+services:
 
   # Backend Django API
   - type: web
