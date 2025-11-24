@@ -34,7 +34,6 @@ services:
   - type: web
     name: procure-to-pay-frontend
     env: static
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
