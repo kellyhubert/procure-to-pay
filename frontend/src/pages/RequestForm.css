@@ -14,7 +14,7 @@
 .btn-back {
   background: none;
   border: none;
-  color: #667eea;
+  color: #046f41;
   cursor: pointer;
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -23,7 +23,7 @@
 }
 
 .btn-back:hover {
-  color: #5568d3;
+  color: #046f41;
 }
 
 .form-header h1 {
@@ -57,7 +57,7 @@
 .request-form input:focus,
 .request-form textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #046f41;
 }
 
 .request-form input:disabled,

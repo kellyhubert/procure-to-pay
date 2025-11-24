@@ -4,7 +4,7 @@
 }
 
 .dashboard-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ background: linear-gradient(135deg, #108e57 0%, #046f41 100%);
   color: white;
   padding: 1.5rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@
 
 .btn-logout {
   background-color: rgba(255, 255, 255, 0.9);
-  color: #667eea;
+  color: #0a7559;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -74,11 +74,11 @@
   padding: 1.5rem;
   background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
   border-radius: 10px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #0a7559;
 }
 
 .welcome-section h2 {
-  color: #333;
+  color: #0d6f5b;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   display: flex;
@@ -105,7 +105,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0a7559 0%, #046f41 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;

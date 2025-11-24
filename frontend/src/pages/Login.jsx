@@ -65,9 +65,9 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="divider">
+        {/* <div className="divider">
           <span>Demo Account</span>
-        </div>
+        </div> */}
 
         <div className="demo-accounts">
           <div className="demo-info">
