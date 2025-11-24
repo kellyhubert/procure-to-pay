@@ -51,11 +51,21 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
    ```
 
 4. **Access the application**
-   - Frontend: http://localhost:5173
-   - API: http://localhost:8000/api/
-   - Swagger Documentation: http://localhost:8000/swagger/
-   - Admin Panel: http://localhost:8000/admin/
-   - Default superuser: `admin` / `admin123`
+   - **Frontend:** http://localhost:5173
+   - **API:** http://localhost:8000/api/
+   - **Swagger Documentation:** http://localhost:8000/swagger/
+   - **Django Admin Panel:** http://localhost:8000/admin/
+   - **Default superuser:** `admin` / `admin123`
+
+5. **Create users with different roles (via Django Admin)**
+   - Go to http://localhost:8000/admin/
+   - Login with `admin` / `admin123`
+   - Click on **"Users"** → **"Add User"**
+   - Create test users with roles:
+     - **Staff:** Can create purchase requests
+     - **Approver Level 1:** Can approve/reject requests (first level)
+     - **Approver Level 2:** Can approve/reject requests (final level)
+     - **Finance:** Can view all requests and data
 
 ### Manual Setup (Without Docker)
 
@@ -125,7 +135,49 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
 ### Approvals
 - `GET /api/approvals/` - List approvals for current user
 
-## User Roles
+## User Management
+
+### Creating Users with Different Roles
+
+To test the complete workflow, you need to create users with different roles:
+
+1. **Access Django Admin Panel**
+   - URL: http://localhost:8000/admin/
+   - Login: `admin` / `admin123`
+
+2. **Add a New User**
+   - Navigate to **"Users"** section
+   - Click **"Add User"** button
+   - Enter username and password
+   - Click **"Save and continue editing"**
+
+3. **Assign Role**
+   - Scroll down to find the **"Role"** dropdown
+   - Select one of:
+     - `Staff` - For purchase request creators
+     - `Approver Level 1` - For first-level approvers
+     - `Approver Level 2` - For second-level approvers
+     - `Finance` - For finance team oversight
+   - Optionally set Department, Phone, Email
+   - Click **"Save"**
+
+4. **Test Login**
+   - Go to http://localhost:5173
+   - Login with the new user credentials
+   - The dashboard will show features based on the assigned role
+
+### Example Test Users
+
+Create these users for complete workflow testing:
+
+| Username | Password | Role | Purpose |
+|----------|----------|------|---------|
+| john_staff | password123 | Staff | Create purchase requests |
+| mary_l1 | password123 | Approver Level 1 | First approval |
+| bob_l2 | password123 | Approver Level 2 | Final approval |
+| finance_user | password123 | Finance | View all data |
+
+## User Roles & Permissions
 
 1. **Staff**
    - Create purchase requests
@@ -140,12 +192,13 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
 
 3. **Approver Level 2**
    - View pending requests
-   - Approve or reject requests
+   - Approve or reject requests (final approval triggers PO generation)
    - View approval history
 
 4. **Finance**
    - View all requests
    - Access complete system data
+   - Monitor entire workflow
 
 ## Workflow
 
