@@ -29,14 +29,12 @@ services:
       - key: OPENAI_API_KEY
         sync: false
     healthCheckPath: /api/
-    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2
 
   # Frontend React App
   - type: web
     name: procure-to-pay-frontend
     env: static
     plan: free
-    region: oregon
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
