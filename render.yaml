@@ -1,15 +1,11 @@
 services:
   # PostgreSQL Database
-  - type: pserv
+  - type: postgres
     name: procure-to-pay-db
-    env: docker
     plan: free
     region: oregon
-    dockerfilePath: ./Dockerfile.postgres
-    disk:
-      name: postgres-data
-      mountPath: /var/lib/postgresql/data
-      sizeGB: 1
+    databaseName: procure_to_pay
+    user: procure_user
 
   # Backend Django API
   - type: web
@@ -17,7 +13,7 @@ services:
     env: docker
     plan: free
     region: oregon
-    dockerfilePath: ./backend/Dockerfile
+    dockerfilePath: ./backend/Dockerfile.render
     dockerContext: ./backend
     envVars:
       - key: DATABASE_URL
@@ -27,14 +23,13 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
-        value: False
+        value: "False"
       - key: ALLOWED_HOSTS
-        value: .onrender.com
+        value: ".onrender.com"
       - key: OPENAI_API_KEY
         sync: false
     healthCheckPath: /api/
-    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
-    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2
 
   # Frontend React App
   - type: web
@@ -42,8 +37,10 @@ services:
     env: static
     plan: free
     region: oregon
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/dist
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
     routes:
       - type: rewrite
         source: /*

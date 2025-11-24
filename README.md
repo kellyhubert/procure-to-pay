@@ -268,6 +268,89 @@ python manage.py shell
 | `DB_PORT` | Database port | `5432` |
 | `OPENAI_API_KEY` | OpenAI API key for document processing | - |
 
+## Deployment to Render
+
+This project is configured for easy deployment to Render.com using the included `render.yaml` file.
+
+### Prerequisites
+
+1. GitHub account with this repository
+2. Render account (sign up at https://render.com)
+3. OpenAI API key (optional, for AI features)
+
+### Deployment Steps
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Prepare for Render deployment"
+   git push origin main
+   ```
+
+2. **Create a new Blueprint instance on Render**
+   - Go to https://dashboard.render.com/
+   - Click **"New +"** → **"Blueprint"**
+   - Connect your GitHub repository
+   - Select the repository containing this project
+   - Render will automatically detect the `render.yaml` file
+
+3. **Configure Environment Variables**
+   - During the Blueprint setup, you'll be prompted to set:
+     - `OPENAI_API_KEY` - Your OpenAI API key (optional but recommended)
+   - Other variables are automatically generated or set
+
+4. **Deploy**
+   - Click **"Apply"** to start the deployment
+   - Render will create three services:
+     - PostgreSQL database
+     - Django backend API
+     - React frontend
+   - Initial deployment takes 5-10 minutes
+
+5. **Access Your Application**
+   - Frontend: `https://procure-to-pay-frontend.onrender.com`
+   - Backend API: `https://procure-to-pay-backend.onrender.com/api/`
+   - Swagger Docs: `https://procure-to-pay-backend.onrender.com/swagger/`
+
+6. **Create Users via Django Admin**
+   - Access: `https://procure-to-pay-backend.onrender.com/admin/`
+   - Default superuser: `admin` / `admin123`
+   - Create test users with different roles (Staff, Approver L1, Approver L2, Finance)
+
+### Important Notes
+
+- **Free Tier Limitations**: Render free tier services spin down after 15 minutes of inactivity. First request after inactivity may take 30-60 seconds.
+- **Database**: PostgreSQL database on free tier has 256MB storage limit.
+- **Static Files**: Static files are served using WhiteNoise.
+- **CORS**: Production CORS is configured to allow requests from the Render frontend URL.
+
+### Updating Your Deployment
+
+After making code changes:
+
+```bash
+git add .
+git commit -m "Your update message"
+git push origin main
+```
+
+Render will automatically detect the push and redeploy your services.
+
+### Troubleshooting
+
+**Backend not starting:**
+- Check logs in Render dashboard
+- Verify DATABASE_URL is set correctly
+- Ensure all dependencies are in requirements.txt
+
+**Frontend not loading:**
+- Check that VITE_API_URL environment variable is set correctly
+- Verify build completed successfully in Render logs
+
+**Database connection issues:**
+- Ensure backend service has DATABASE_URL from database
+- Check database service is running
+
 ## License
 
 This project is for assessment purposes.
