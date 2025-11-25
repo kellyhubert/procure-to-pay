@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from drf_yasg.views import get_schema_view
@@ -9,6 +10,10 @@ from drf_yasg import openapi
 from rest_framework import permissions
 
 from procurement.views import UserViewSet, PurchaseRequestViewSet, ApprovalViewSet
+
+# Health check view
+def health_check(request):
+    return JsonResponse({'status': 'healthy', 'service': 'procure-to-pay-backend'})
 
 # API Router
 router = DefaultRouter()
@@ -32,6 +37,9 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Health check endpoint
+    path('health/', health_check, name='health_check'),
 
     # API URLs
     path('api/', include(router.urls)),
