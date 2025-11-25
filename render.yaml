@@ -26,7 +26,7 @@ services:
         value: ".onrender.com"
       - key: OPENAI_API_KEY
         sync: false
-    healthCheckPath: /api/
+    healthCheckPath: /health/
 
   # Frontend React App
   - type: web
