@@ -2,8 +2,6 @@ databases:
   - name: procure-to-pay-db
     databaseName: procure_to_pay
     user: procure_user
-    plan: free
-    region: oregon
 
 services:
 
