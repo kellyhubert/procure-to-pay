@@ -41,4 +41,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: https://procure-to-pay-backend.onrender.com/api
+        value: https://procure-to-pay-backend-gzky.onrender.com/api
