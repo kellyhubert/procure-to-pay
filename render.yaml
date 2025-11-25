@@ -10,9 +10,7 @@ services:
     name: procure-to-pay-backend
     env: docker
     plan: free
-    region: oregon
-    dockerfilePath: ./Dockerfile.render
-    dockerContext: ./backend
+    dockerfilePath: backend/Dockerfile.render
     envVars:
       - key: DATABASE_URL
         fromDatabase:
