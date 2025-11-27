@@ -286,7 +286,7 @@ This project is configured for easy deployment to Render.com using the included 
    - Swagger Docs: `https://procure-to-pay-backend.onrender.com/swagger/`
 
 6. **Create Users via Django Admin**
-   - Access: `https://procure-to-pay-backend.onrender.com/admin/`
+   - Access: `https://procure-to-pay-backend-gzky.onrender.com/admin/`
    - Default superuser: `admin` / `admin123`
    - Create test users with different roles (Staff, Approver L1, Approver L2, Finance)
 
