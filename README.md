@@ -73,7 +73,7 @@ A mini "Procure-to-Pay" system with REST APIs using Django + Django REST Framewo
    ```bash
    cd backend
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   venv\Scripts\activate  # On Windows: venv\Scripts\activate
    ```
 
 2. **Install dependencies**
